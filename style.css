@@ -1,0 +1,11 @@
+.content {
+	background-color: lightgoldenrodyellow;
+	height: 700px;
+	width: 400px;
+	margin: 3px;
+	padding: 40px;
+	float: center;
+	margin-left: 20%;
+	font-family: cursive;
+	border-radius :4px;
+}

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script
+	src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+<script
+	src="https://unpkg.com/angular-ui-router@0.4.2/release/angular-ui-router.min.js"></script>
+<script src="srv.js"></script>
+<script src="service.js"></script>
+<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body ng-app="srvApp">
+
+
+	<span my-draggable>
+		<div class="content">
+			<div ng-controller="srvCtrl as vm" id="wrapper">
+
+
+				country: <select id="selectedId" ng-change="vm.neww(country)"
+					ng-model="country"
+					ng-options="value.countryName for (key, value) in vm.countries track by value.countryId">
+					<option value=''>Select</option>
+				</select> <br /> <br /> 
+				state: <select id="country" ng-disabled="!country"
+					ng-change="vm.onclick(places)" ng-model="places"
+					ng-options="value.place for (country, value) in vm.states">
+					<option value=''>Select</option>
+
+				</select> <br /> <br /> <br /> <img ng-src="{{vm.img}}" />
+				<!-- <ul class="nav navbar-nav">
+					<li><a ui-sref="home">Marshall Islands</a></li>
+					<li><a ui-sref="about">New Zealand</a></li>
+				</ul> -->
+			</div>
+
+
+			<div class="container">
+
+				<!-- THIS IS WHERE WE WILL INJECT OUR CONTENT ============================== -->
+
+				<div ui-view></div>
+			</div>
+		</div>
+
+
+	</span>
+
+</body>
+</html>

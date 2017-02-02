@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<resources>
+<!--  these are examples of configuring jaxb providers -->
+<!--     <Service id="jsonProvider" class-name="org.apache.cxf.jaxrs.provider.json.JSONProvider"> -->
+<!--         dropRootElement=false -->
+<!--         supportUnwrapped=true -->
+<!--         dropCollectionWrapperElement=false -->
+<!--     </Service> -->
+<!--     <Service id="exceptionMapper" class-name="com.walmart.move.receiving.ExceptionMapperProvider"/> -->
+		
+	<Resource id="defaultDataSource" type="javax.sql.DataSource">
+	<!-- Below are default values to be used unless overridded by the environment (command line or properties files) -->
+	    accessToUnderlyingConnectionAllowed = false
+	    connectionProperties = 
+	    defaultAutoCommit = true
+	    defaultReadOnly = 
+	    definition = 
+	    ignoreDefaultValues = false
+	    initialSize = 50
+	    jdbcDriver = org.hsqldb.jdbcDriver
+	    jdbcUrl = jdbc:hsqldb:mem:RCVDB
+	    jtaManaged = true
+	    LogSql = false
+	    maxActive = 200
+	    maxIdle = 150
+	    maxOpenPreparedStatements = 0
+	    maxWaitTime = -1 millisecond
+	    minEvictableIdleTime = 30 minutes
+	    minIdle = 100
+	    numTestsPerEvictionRun = 3
+	    password =l4virus
+	    passwordCipher = PlainText
+	    poolPreparedStatements = false
+	    serviceId = 
+	    testOnBorrow = true
+	    testOnReturn = false
+	    testWhileIdle = false
+		timeBetweenEvictionRunsMillis = 34000
+		timeBetweenEvictionRuns = 34000 milliseconds
+	    userName = gls
+	    validationQuery = select count(*) from systables
+	    defaultSchema = PUBLIC
+	    dialect=org.hibernate.dialect.HSQLDialect
+		validationInterval=600000
+
+<!-- Below property not necessary with Tomee 1.8 -->
+<!-- 	    openejb.datasource.pool = true  -->
+<!-- Internally, from TomEE 1.5.0, JDBC pools are managed via Tomcat-pool. 
+You can still switch back to Apache Commons DBCP by adding the following property: DataSourceCreator dbcp. -->
+	</Resource>
+</resources>

@@ -1,0 +1,16 @@
+WAL,UK,Wales,http://localhost:8080/blog/wales.jpg
+SCT,UK,Scotland,http://localhost:8080/blog/scotland.jpg
+ENG,UK,England,http://localhost:8080/blog/england.jpg
+NIR,UK, Northern Ireland,http://localhost:8080/blog/ireland.jpg
+BOT ,AFR,Botswana,http://localhost:8080/blog/botswana.jpg
+MDG  ,AFR,Madagascar,http://localhost:8080/blog/madagascar.jpg
+CMR,AFR, Cameroon,http://localhost:8080/blog/cameroon.jpg
+SEA,US,Seattle,http://localhost:8080/blog/seattle.jpg
+SFR,US,San Francisco,http://localhost:8080/blog/san.jpg
+CHG,US,Chicago,http://localhost:8080/blog/chicago.jpg
+MLI ,AUS,Marshall Islands,http://localhost:8080/blog/marshall.jpg
+NZL,AUS,New Zealand,http://localhost:8080/blog/newzeea.jpg
+DEL    ,IND,Delhi,http://localhost:8080/blog/delhi.jpg
+KER ,IND,Kerala,http://localhost:8080/blog/kerala.jpg
+PAR,FRA,Paris,http://localhost:8080/blog/paris.jpg
+NAN  ,FRA,Nantes,http://localhost:8080/blog/nantes.jpg
