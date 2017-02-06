@@ -1,0 +1,64 @@
+package resource;
+
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
+
+import java.net.HttpRetryException;
+import java.util.List;
+
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.ws.rs.Consumes;
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.Context;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
+
+import destination.infrastructure.DestinationService;
+import destination.model.Destination;
+import destination.model.DestinationResult;
+import destination.model.SpecificPlace;
+import destination.model.SpecificPlaceResult;
+
+@Path("/destination")
+@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
+@Consumes({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
+public class DestinationResource {
+
+	@GET
+	@ApiOperation(value = "Get Destination List", notes = "Get list of countries")
+	@ApiResponses(value = { @ApiResponse(code = 200, message = "country details", response = Destination.class) })
+	public Response getCountryList( @Context HttpServletRequest request) {
+		DestinationService destService = new DestinationService();
+	    List<Destination> destList = destService.getCountryList(request.getRealPath(""));
+		System.out.println("DESTINATION : " + destList);
+		
+		
+		DestinationResult dr = new DestinationResult();
+		dr.setdList(destList);
+	//	GenericEntity<List<Destination>> entity = new GenericEntity<List<Destination>>(destList) {};
+		return Response.ok(dr).build();
+
+	}
+	
+	@GET
+	@Path("/{countryCode}/cities")
+	@ApiOperation(value = "Get Places", notes = "Get list of places")
+	@ApiResponses(value = { @ApiResponse(code = 200, message = "places", response = Destination.class) })
+	public Response getSpecificCities(
+			@ApiParam(value = "country code", required = true) @PathParam("countryCode") String countryCode,  @Context HttpServletRequest request) {
+		DestinationService destService = new DestinationService();
+	    List<SpecificPlace> cityList = destService.getSpecificPlaces(countryCode, request.getRealPath(""));
+		System.out.println("cityList : " + cityList);
+		
+		SpecificPlaceResult dr = new SpecificPlaceResult();
+		dr.setSpecificCities(cityList);
+	//	GenericEntity<List<Destination>> entity = new GenericEntity<List<Destination>>(destList) {};
+		return Response.ok(dr).build();
+ }
+}
